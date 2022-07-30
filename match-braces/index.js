@@ -61,9 +61,8 @@ function areBracketsValid(input) {
      * 1. we've already checked our very first bracket in the array for validity, before we hit the loop. It should be an OPENING
      * bracket, else it isn't valid.
      * 2. For those opening brackets, we're checking whether the _NEXT_ bracket is valid, not the _current_ one. That's the important part of this solution. The other part, uses the bracketCount var.
-     * 3. I kind of forget exactly _how_ I came up with this, so it's hard to explain - intuition?
      *
-     * Finally, for each open bracket we increment the bracketCount, for each closing, we decrement it.
+     * So, for each open bracket we increment the bracketCount, for each closing, we decrement it.
      *
      * Using a switch is handy, although in this case, it seems more verbose, we have an easy way to break out of a switch,
      * so we don't have to do any more checks - we found our case, our "match"
