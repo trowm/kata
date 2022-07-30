@@ -104,7 +104,12 @@ function areBracketsValid(input) {
   }
 
   /**
-   * Our final check - if bracketCount isn't zero, it means we're missing a matching close brace.
+   * Our final check - if bracketCount isn't zero, it means we're missing a matching closing brace.
+   * In a way, this is the "Secret Sauce" to my solution, in our switch, we've checked the validity of the _next_ brace
+   * but by using a bracketCount, we don't have to bother with checking validity for closing everything. 
+   * If it isn't zero, then it isn't closed.
+   * This allows us to not bother checking something like `(((((` to see if it's valid, instead, we use a count.
+   * It simplifies things considerably.
    */
   if (bracketCount !== 0) isValid = false;
 
