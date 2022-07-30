@@ -1,16 +1,19 @@
 /**
  * Define some basic validity arrays for each bracket type.
  * These are used to check the _next_ bracket, not the current one
+ * So, note the first two values for each - they are the close AND the end for
+ * that bracket type. The other bracket types are only ever the _opening_ type.
+ * Note: The order of these arrays is irrelevant, I just put the open/close
+ * for each bracket type first as a cognitive indicator.
  */
 const validSquareBrackets = ["[", "]", "(", "{"];
 const validRoundBrackets = ["(", ")", "[", "{"];
 const validCurlyBrackets = ["{", "}", "[", "("];
 
 /**
- * Define a valid start bracket
+ * Define valid start brackets
  */
 const validStartBrackets = ["[", "{", "("];
-
 
 /**
  * @param {*} input 
@@ -40,26 +43,29 @@ function areBracketsValid(input) {
    */
   for (let i = 0; i < inputToArray.length; ++i) {
     /**
-     * In our switch, we only care about checking the current open bracket value in our array against a list of valid brackets for the bracket _after_ it.
+     * In our switch, we only care about checking the current open bracket value in our array against a list of valid
+     * brackets for the bracket _after_ it.
+     * 
      * Why?:
      * 1. we've already _checked_ our very first bracket in the array for validity, before we hit the loop.
      * 2. we're checking whether the next bracket is valid, not the _current_ one.
      * 
      * Finally, for each open bracket we increment the bracketCount, for each closing, we decrement it.
      * 
-     * Using a switch is handy, although in this case, it seems more verbose, we have an easy way to break out of a switch, so we don't have to do any more checks - we found our case, our "match"
+     * Using a switch is handy, although in this case, it seems more verbose, we have an easy way to break out of a switch,
+     * so we don't have to do any more checks - we found our case, our "match"
      */
     switch (inputToArray[i]) {
       case "[":
-        if (!validSquareBrackets.includes(inputToArray[i+1])) valid = false;
+        valid = validSquareBrackets.includes(inputToArray[i+1]);
         bracketCount++;
         break;
       case "{":
-        if (!validCurlyBrackets.includes(inputToArray[i+1])) valid = false;
+        valid = validCurlyBrackets.includes(inputToArray[i+1]);
         bracketCount++;
         break;
       case "(":
-        if (!validRoundBrackets.includes(inputToArray[i+1])) valid = false;
+        valid = validRoundBrackets.includes(inputToArray[i+1]);
         bracketCount++;
         break;
       case "]":
