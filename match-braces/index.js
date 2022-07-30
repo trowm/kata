@@ -55,12 +55,13 @@ function areBracketsValid(input) {
    */
   for (let i = 0; i < inputToArray.length; ++i) {
     /**
-     * In our switch, we only care about checking the current open bracket value in our array against a list of valid
-     * brackets for the bracket _after_ it.
+     * In our switch, we only check the opening brackets against a valid list of what can follow one, never closing brackets.
      *
      * Why?:
-     * 1. we've already _checked_ our very first bracket in the array for validity, before we hit the loop.
-     * 2. we're checking whether the next bracket is valid, not the _current_ one.
+     * 1. we've already checked our very first bracket in the array for validity, before we hit the loop. It should be an OPENING
+     * bracket, else it isn't valid.
+     * 2. For those opening brackets, we're checking whether the _NEXT_ bracket is valid, not the _current_ one. That's the important part of this solution. The other part, uses the bracketCount var.
+     * 3. I kind of forget exactly _how_ I came up with this, so it's hard to explain - intuition?
      *
      * Finally, for each open bracket we increment the bracketCount, for each closing, we decrement it.
      *
