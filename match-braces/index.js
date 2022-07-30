@@ -63,7 +63,7 @@ function areBracketsValid(input) {
      *
      * So, for each open bracket I increment the bracketCount, for each closing, I decrement it.
      *
-     * Using a switch is handy, although in this case, it seems more verbose, but as there is an easy way to break out of a switch, I don't need to keep traversing through the other cases - I love a good switch! 
+     * Using a switch is handy, although in this case, it seems more verbose, but as there is an easy way to break out of a switch, I don't need to keep traversing through the other cases - I love a good switch!
      */
     switch (inputToArray[i]) {
       case "[":
@@ -115,25 +115,39 @@ function areBracketsValid(input) {
   return isValid;
 }
 
-console.log('"" =>', areBracketsValid(""));
+console.log("\nCheck against the codewars examples:\n");
 
-console.log("123 =>", areBracketsValid(123));
+console.log("(){}[]   =>", areBracketsValid("(){}[]"));
+console.log("([{}])   =>", areBracketsValid("([{}])"));
+console.log("(}       =>", areBracketsValid("(}"));
+console.log("[(])     =>", areBracketsValid("[(])"));
+console.log("[({})](] =>", areBracketsValid("[({})](]"));
 
-console.log("foo =>", areBracketsValid("foo"));
+console.log("\nOther checks:\n");
 
-console.log("[1,2,3] =>", areBracketsValid([1, 2, 3]));
+console.log('NaN                        =>', areBracketsValid(NaN));
 
-console.log("[ => ", areBracketsValid("["));
+console.log('undefined                  =>', areBracketsValid(undefined));
 
-console.log("[] => ", areBracketsValid("[]"));
+console.log('""                         =>', areBracketsValid(""));
 
-console.log("[} => ", areBracketsValid("[}"));
+console.log("123                        =>", areBracketsValid(123));
 
-console.log("][}{)( => ", areBracketsValid("][}{)("));
+console.log("foo                        =>", areBracketsValid("foo"));
 
-console.log("[({})] => ", areBracketsValid("[({})]"));
+console.log("[1,2,3]                    =>", areBracketsValid([1, 2, 3]));
+
+console.log("[                          =>", areBracketsValid("["));
+
+console.log("[]                         =>", areBracketsValid("[]"));
+
+console.log("[}                         =>", areBracketsValid("[}"));
+
+console.log("][}{)(                     =>", areBracketsValid("][}{)("));
+
+console.log("[({})]                     =>", areBracketsValid("[({})]"));
 
 console.log(
-  "[(())(()){{{{{{[]}}}}}}]{} => ",
+  "[(())(()){{{{{{[]}}}}}}]{} =>",
   areBracketsValid("[(())(()){{{{{{[]}}}}}}]{}")
 );
