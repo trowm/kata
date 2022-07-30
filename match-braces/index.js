@@ -109,7 +109,7 @@ function areBracketsValid(input) {
    * If it isn't zero, then it isn't closed.
    * This allows us to not bother checking something like `(((((` to see if it's valid during our loop through all of our brackets, instead, we use a count.
    * It simplifies things considerably.
-   * Think about it - we're only really checking if the NEXT bracket is valid, we don't care whether we're closing stuff or not. Our count does the rest for us = winning.
+   * Think about it - we're only really checking if the NEXT bracket is valid, we don't care whether we're closing stuff or not. Our count does all that for us = winning.
    */
   if (bracketCount !== 0) isValid = false;
 
