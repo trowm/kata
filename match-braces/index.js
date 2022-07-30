@@ -58,12 +58,15 @@ function areBracketsValid(input) {
      * In the switch, I only check the opening brackets against a valid list of what can follow one, never closing brackets.
      *
      * Why?:
-     * 1. I've already checked the very first bracket in the array for validity, before I hit the loop. It should be an OPENING bracket, else it isn't valid.
-     * 2. For those opening brackets, I'm checking whether the _NEXT_ bracket is valid, not the _current_ one. That's one important part of this solution. The other part uses the bracketCount var.
+     * 1. I've already checked the very first bracket in the array for validity, before I hit the loop.
+     *    It should be an OPENING bracket, else it isn't valid.
+     * 2. For those opening brackets, I'm checking whether the _NEXT_ bracket is valid, not the _current_ one. 
+     *    That's one important part of this solution. The other part uses the bracketCount var.
      *
      * So, for each open bracket I increment the bracketCount, for each closing, I decrement it.
      *
-     * Using a switch is handy, although in this case, it seems more verbose, but as there is an easy way to break out of a switch, I don't need to keep traversing through the other cases - I love a good switch!
+     * Using a switch is handy, although in this case, it seems more verbose, but as there is an easy way to break
+     * out of a switch, I don't need to keep traversing through the other cases - I love a good switch!
      */
     switch (inputToArray[i]) {
       case "[":
@@ -106,9 +109,11 @@ function areBracketsValid(input) {
    * In a way, this is the "Secret Sauce" to my solution, in the switch, I've checked the validity of the _next_ bracket
    * but by using a bracketCount, I don't have to bother with checking validity for closing everything.
    * If it isn't zero, then it isn't closed.
-   * This allows me to not bother checking something like `(((((` to see if it's valid during the loop through all of the brackets, instead, I use a count.
+   * This allows me to not bother checking something like `(((((` to see if it's valid during the loop through
+   * all of the brackets, instead, I use a count.
    * It simplifies things considerably.
-   * Think about it - this is only really checking if the NEXT bracket is valid, I don't care whether I'm closing stuff or not. The count does all that for me = winning.
+   * Think about it - this is only really checking if the NEXT bracket is valid,
+   * I don't care whether I'm closing stuff or not. The count does all that for me = winning.
    */
   if (bracketCount !== 0) isValid = false;
 
