@@ -67,11 +67,6 @@ function areBracketsValid(input) {
      *    same idea, the bracketCount handles the rest of this.
      *
      * So, for each open bracket I increment the bracketCount, for each closing, I decrement it.
-     *
-     * Using a switch is handy, although in this case, it seems more verbose, but as there is an easy way to break
-     * out of a switch, I don't need to keep traversing through the other cases - I love a good switch!
-     * 
-     * The same can be done with a for loop, using `continue`
      */
     switch (inputToArray[i]) {
       case "[":
