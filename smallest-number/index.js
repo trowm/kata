@@ -9,7 +9,9 @@ function smallest(number) {
     });
   num.splice(sortAndRetainIndex[0][1], 1);
   num.unshift(sortAndRetainIndex[0][0]);
-  return [Number(num.join("")), sortAndRetainIndex[0][1], 0 ]
+  console.log(sortAndRetainIndex);
+  return [Number(num.join("")), sortAndRetainIndex[0][1], 0 ];
+
 }
 
-console.log(smallest(652));
+console.log(smallest(285365));
